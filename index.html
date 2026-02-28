@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1XBET PROTOS AI: ប្រព័ន្ធ VIP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@400;600;700&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #0b1a2a; /* 1xbet dark blue */
+            --bg-light: #152b42; /* 1xbet secondary blue */
+            --xbet-blue: #2e8bce;
+            --xbet-green: #5ebc3b; /* 1xbet green */
+            --xbet-green-hover: #4ca62b;
+            --xbet-accent: #f0f3f5;
+            --neon-shadow: 0 0 20px rgba(94, 188, 59, 0.5);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Kantumruy Pro', 'Montserrat', sans-serif;
+            background: radial-gradient(circle at top, var(--bg-light) 0%, var(--bg-deep) 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; text-align: center; }
+
+        /* --- HEADER --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 30px;
+        }
+        .logo { font-weight: 900; font-size: 26px; letter-spacing: -1px; font-family: 'Montserrat', sans-serif; }
+        .logo span { color: var(--xbet-blue); margin-left: 5px; }
+        .flag-gif { width: 60px; height: auto; border-radius: 4px; box-shadow: 0 0 10px rgba(255,255,255,0.2); }
+
+        /* --- STEPS --- */
+        .step-content { display: none; animation: fadeIn 0.4s ease; }
+        .active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- TYPOGRAPHY --- */
+        h1 { font-weight: 700; font-size: 1.8rem; margin-bottom: 20px; line-height: 1.4; }
+        .subtitle { font-size: 1rem; line-height: 1.6; opacity: 0.9; max-width: 750px; margin: 0 auto 30px; }
+        .status-box { background: rgba(0,0,0,0.4); padding: 15px; border-radius: 10px; margin-bottom: 30px; display: inline-block; border: 1px solid rgba(255,255,255,0.1); }
+
+        /* --- BUTTONS --- */
+        .btn-main {
+            background: linear-gradient(45deg, var(--xbet-green), var(--xbet-green-hover));
+            border: none;
+            padding: 20px 45px;
+            color: white;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(94, 188, 59, 0.3);
+            font-family: 'Kantumruy Pro', sans-serif;
+        }
+        .btn-main:hover { transform: scale(1.05); box-shadow: var(--neon-shadow); }
+
+        .btn-back { background: none; border: 1px solid #555; color: #aaa; padding: 10px 20px; border-radius: 8px; cursor: pointer; margin-top: 20px; }
+
+        /* --- ERROR MESSAGE --- */
+        #idErrorMsg {
+            display: none;
+            background: rgba(255, 50, 50, 0.1);
+            border: 1px solid #ff4444;
+            color: #ff4444;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: 600;
+            line-height: 1.5;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* --- WINNERS --- */
+        .winner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+            text-align: left;
+        }
+        .winner-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.05);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .winner-card img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--xbet-green); }
+        .winner-card b { color: var(--xbet-green); font-size: 1.1rem; }
+
+        /* --- FOOTER --- */
+        footer { margin-top: 60px; padding: 40px 0; border-top: 1px solid #1e3a5f; }
+        .pay-logos { display: flex; justify-content: center; align-items: center; gap: 30px; margin-bottom: 25px; flex-wrap: wrap; }
+        .pay-logos img { height: 25px; filter: grayscale(1) brightness(2); }
+        .aba-logo { background: #005a9c; color: white; padding: 4px 10px; border-radius: 4px; font-weight: 900; font-family: 'Montserrat', sans-serif; font-size: 1.2rem; letter-spacing: 1px; }
+        .aba-logo span { color: #e41a23; }
+        .copy { font-size: 0.75rem; color: #777; line-height: 1.6; max-width: 600px; margin: 0 auto; }
+
+        /* --- CHAT --- */
+        #chat-trigger { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: var(--xbet-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1000; box-shadow: 0 5px 15px rgba(0,0,0,0.5); font-size: 24px; }
+        #chat-window { position: fixed; bottom: 100px; right: 25px; width: 320px; height: 450px; background: var(--bg-deep); border: 1px solid #1e3a5f; border-radius: 12px; display: none; flex-direction: column; z-index: 1000; overflow: hidden; }
+        .chat-header { background: var(--xbet-blue); padding: 12px 15px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+        #chat-content { flex: 1; padding: 15px; overflow-y: auto; font-size: 0.85rem; text-align: left; }
+        .chat-msg { margin-bottom: 12px; }
+        .chat-msg b { color: var(--xbet-green); }
+
+        /* --- INPUTS --- */
+        .id-input { background: rgba(0,0,0,0.3); border: 1px solid #1e3a5f; padding: 15px; color: white; border-radius: 8px; width: 260px; margin-bottom: 15px; text-align: center; font-size: 1.1rem; }
+        .id-input:focus { outline: none; border-color: var(--xbet-blue); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo">1XBET<span>PROTOS AI</span></div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Flag_of_Cambodia.svg" alt="Cambodia" class="flag-gif">
+    </header>
+
+    <div id="step1" class="step-content active">
+        <h1>🤖 <b>PROTOS AI v4.2: ការតភ្ជាប់ត្រូវបានបង្កើតឡើង។</b></h1>
+        <p class="subtitle">
+            ប្រព័ន្ធរបស់យើងវិភាគចន្លោះប្រហោងក្នុងក្បួនដោះស្រាយកាស៊ីណូដោយប្រើបណ្តាញសរសៃប្រសាទ។ បច្ចុប្បន្ននេះ យើងកំពុងតាមដានប្រព័ន្ធជាង 140 ដើម្បីផ្តល់ឱ្យអ្នកនូវការព្យាករណ៍ជាមួយនឹងប្រូបាប៊ីលីតេឈ្នះខ្ពស់បំផុត។<br><br>
+            ជាមួយ PROTOS AI អ្នកមិនលេងទល់នឹងកាស៊ីណូទេ — អ្នកលេងដោយមានអត្ថប្រយោជន៍ខាងគណិតវិទ្យា។
+        </p>
+        <div class="status-box">
+            📊 <b>ស្ថានភាពប្រព័ន្ធ៖</b> <span style="color:var(--xbet-green)">សកម្ម</span> &nbsp; 
+            🎯 <b>ប្រសិទ្ធភាព AI៖</b> <span style="color:#ffcc00">94.8%</span> &nbsp; 
+            👥 <b>កន្លែងទំនេរ៖</b> <span style="color:#ff4444">7/100</span>
+        </div>
+        <p><b>ចុចប៊ូតុងខាងក្រោមដើម្បីធ្វើឱ្យសិទ្ធិចូលដំណើរការរបស់អ្នកសកម្ម និងទទួលបានការព្យាករណ៍ដំបូងរបស់អ្នក៖</b></p>
+        <button class="btn-main" onclick="goToStep(2)">ចូលរួមជាមួយក្រុម</button>
+
+        <div style="margin-top: 60px; text-align: left;">
+            <h3 style="border-left: 4px solid var(--xbet-blue); padding-left: 15px;">🏆 អ្នកឈ្នះក្នុងក្រុមរបស់យើង៖</h3>
+            <div class="winner-grid">
+                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1521"><div><small>ID: 152**441</small><br><b>1,245,000 KHR</b></div></div>
+                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1531"><div><small>ID: 153**902</small><br><b>810,000 KHR</b></div></div>
+                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1541"><div><small>ID: 154**115</small><br><b>2,100,000 KHR</b></div></div>
+                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1551"><div><small>ID: 155**773</small><br><b>560,000 KHR</b></div></div>
+                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1522"><div><small>ID: 152**229</small><br><b>1,490,000 KHR</b></div></div>
+                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1532"><div><small>ID: 153**004</small><br><b>920,000 KHR</b></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="step2" class="step-content">
+        <h2 style="color:#ff4444">⚠️ គណនីមិនសកម្មទេ!</h2>
+        <p>ចុះឈ្មោះ និងបញ្ចូល ID របស់អ្នក ដើម្បីអោយប្រព័ន្ធអាចភ្ជាប់គណនីរបស់អ្នកទៅនឹងក្បួនដោះស្រាយ AI។</p>
+        <button class="btn-main" style="background:#1e3a5f; box-shadow: none; font-size: 1rem; color: #fff;" onclick="window.open('https://standarttrack.com/?promo=983eb7d4-6826-42a9-a980-1bf1f16b995d&target=register')">🔗 ការចុះឈ្មោះ (1XBET)</button>        
+        <div style="margin-top: 30px;">
+            <input type="text" id="idInput" class="id-input" placeholder="បញ្ចូល ID អ្នកលេង">
+            <br>
+            <button class="btn-main" onclick="validateID()">បញ្ជាក់ ID</button>
+            
+            <div id="idErrorMsg">
+                ❌ គណនីរបស់អ្នកមិនមានប្រាក់គ្រប់គ្រាន់ទេ។<br><br>
+                បើគ្មានការដាក់ប្រាក់អប្បបរមាទេ បូតមិនអាចផ្តល់ការព្យាករណ៍ត្រឹមត្រូវទេ។ សូមធ្វើការដាក់ប្រាក់ជាមុនសិន។
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="pay-logos">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+            <div class="aba-logo">ABA<span>'</span> BANK</div>
+        </div>
+        <div class="copy">
+            រក្សាសិទ្ធិគ្រប់យ៉ាង © 2026 1XBET PROTOS AI: ប្រព័ន្ធ VIP. លេងដោយមានការទទួលខុសត្រូវ។<br>
+            ក្បួនដោះស្រាយ PROTOS AI ត្រូវបានការពារដោយការរក្សាសិទ្ធិ។ ភាពជោគជ័យអាស្រ័យលើស្ថេរភាពនៃការតភ្ជាប់ជាមួយម៉ាស៊ីនមេ។
+        </div>
+    </footer>
+</div>
+
+<div id="chat-trigger" onclick="toggleChat()">💬</div>
+<div id="chat-window">
+    <div class="chat-header">
+        <span>ជជែក VIP (អនឡាញ)</span>
+        <span onclick="toggleChat()" style="cursor:pointer">✕</span>
+    </div>
+    <div id="chat-content">
+        </div>
+</div>
+
+<script>
+    function goToStep(s) {
+        document.querySelectorAll('.step-content').forEach(el => el.classList.remove('active'));
+        document.getElementById('step' + s).classList.add('active');
+        window.scrollTo(0,0);
+        
+        if(s === 2) {
+            startChat(); // Odpalamy czat dla uwiarygodnienia
+        }
+    }
+
+    function validateID() {
+        const val = document.getElementById('idInput').value;
+        const errorMsg = document.getElementById('idErrorMsg');
+        
+        if(val.length >= 5 && /^\d+$/.test(val)) {
+            // TUTAJ NASTĘPUJE BLOKADA LIDA:
+            // Zamiast przepuszczać do kolejnego kroku, pokazujemy błąd o braku depozytu.
+            errorMsg.style.display = 'block';
+        } else {
+            alert("បញ្ជាក់៖ ID ត្រូវតែមានលេខត្រឹមត្រូវ។ (ID must be valid numbers)");
+            errorMsg.style.display = 'none';
+        }
+    }
+
+    function toggleChat() {
+        const win = document.getElementById('chat-window');
+        win.style.display = (win.style.display === 'flex') ? 'none' : 'flex';
+    }
+
+    // Zainicjowany czat w języku kambodżańskim (Khmer)
+    function startChat() {
+        const chatBox = document.getElementById('chat-content');
+        const names = ["Sok_KH", "Bora_99", "VIP_King", "Rithy_Pro", "Chanthy_G", "Player1x"];
+        const texts = [
+            "ទើបតែឈ្នះ x1.40 ក្នុង Aviator!",
+            "Mines AI អស្ចារ្យណាស់ ខ្ញុំបើកបានពេជ្រ 7!",
+            "តើវាដំណើរការសម្រាប់អ្នកទេ? ដកប្រាក់ 200,000 KHR ក្នុងរយៈពេល 5 នាទី!",
+            "បាទ វាលឿនណាស់ ហ្គេមនេះគឺល្អបំផុតថ្ងៃនេះ។",
+            "អរគុណសម្រាប់ការព្យាករណ៍ PROTOS AI គឺជាអនាគត!",
+            "ចំណេញ 150,000 KHR ទៀតហើយ ខ្ញុំស្រលាញ់ប្រព័ន្ធនេះណាស់។",
+            "មានអ្នកណាឃើញ x3 ក្នុង Aviator ថ្ងៃនេះទេ?"
+        ];
+
+        setInterval(() => {
+            if(Math.random() > 0.4) {
+                const msg = document.createElement('div');
+                msg.className = 'chat-msg';
+                msg.innerHTML = `<b>${names[Math.floor(Math.random()*names.length)]}:</b> ${texts[Math.floor(Math.random()*texts.length)]}`;
+                chatBox.appendChild(msg);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }, 4000);
+    }
+</script>
+
+</body>
+</html>
