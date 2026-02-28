@@ -100,7 +100,7 @@
             border-radius: 8px;
             border: 1px solid rgba(255,255,255,0.05);
         }
-        .winner-card img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--xbet-green); }
+        .winner-card img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--xbet-green); object-fit: cover; }
         .winner-card b { color: var(--xbet-green); font-size: 1.1rem; }
 
         /* --- FOOTER --- */
@@ -149,12 +149,12 @@
         <div style="margin-top: 60px; text-align: left;">
             <h3 style="border-left: 4px solid var(--xbet-blue); padding-left: 15px;">🏆 អ្នកឈ្នះក្នុងក្រុមរបស់យើង៖</h3>
             <div class="winner-grid">
-                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1521"><div><small>ID: 152**441</small><br><b>1,245,000 KHR</b></div></div>
-                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1531"><div><small>ID: 153**902</small><br><b>810,000 KHR</b></div></div>
-                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1541"><div><small>ID: 154**115</small><br><b>2,100,000 KHR</b></div></div>
-                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1551"><div><small>ID: 155**773</small><br><b>560,000 KHR</b></div></div>
-                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1522"><div><small>ID: 152**229</small><br><b>1,490,000 KHR</b></div></div>
-                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1532"><div><small>ID: 153**004</small><br><b>920,000 KHR</b></div></div>
+                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1521"><div><small>ID: 152**441</small><br><b>$125,400</b></div></div>
+                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1531"><div><small>ID: 153**902</small><br><b>$85,000</b></div></div>
+                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1541"><div><small>ID: 154**115</small><br><b>$540,200</b></div></div>
+                <div class="winner-card"><img src="https://randomuser.me/api/portraits/men/32.jpg"><div><small>ID: 155**773</small><br><b>$42,500</b></div></div>
+                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1522"><div><small>ID: 152**229</small><br><b>$210,000</b></div></div>
+                <div class="winner-card"><img src="https://i.pravatar.cc/100?u=1532"><div><small>ID: 153**004</small><br><b>$155,000</b></div></div>
             </div>
         </div>
     </div>
@@ -170,7 +170,7 @@
             
             <div id="idErrorMsg">
                 ❌ គណនីរបស់អ្នកមិនមានប្រាក់គ្រប់គ្រាន់ទេ។<br><br>
-                បើគ្មានការដាក់ប្រាក់អប្បបរមាទេ បូតមិនអាចផ្តល់ការព្យាករណ៍ត្រឹមត្រូវទេ។ សូមធ្វើការដាក់ប្រាក់ជាមុនសិន។
+                បើគ្មានការដាក់ប្រាក់អប្បបរមា <b>$5 (ប្រហែល 20,000 KHR)</b> ទេ បូតមិនអាចផ្តល់ការព្យាករណ៍ត្រឹមត្រូវទេ។ សូមធ្វើការដាក់ប្រាក់ជាមុនសិន។
             </div>
         </div>
     </div>
@@ -196,7 +196,7 @@
         <span onclick="toggleChat()" style="cursor:pointer">✕</span>
     </div>
     <div id="chat-content">
-        </div>
+    </div>
 </div>
 
 <script>
@@ -206,7 +206,7 @@
         window.scrollTo(0,0);
         
         if(s === 2) {
-            startChat(); // Odpalamy czat dla uwiarygodnienia
+            startChat();
         }
     }
 
@@ -215,8 +215,7 @@
         const errorMsg = document.getElementById('idErrorMsg');
         
         if(val.length >= 5 && /^\d+$/.test(val)) {
-            // TUTAJ NASTĘPUJE BLOKADA LIDA:
-            // Zamiast przepuszczać do kolejnego kroku, pokazujemy błąd o braku depozytu.
+            // Blokada po wpisaniu ID
             errorMsg.style.display = 'block';
         } else {
             alert("បញ្ជាក់៖ ID ត្រូវតែមានលេខត្រឹមត្រូវ។ (ID must be valid numbers)");
@@ -229,17 +228,16 @@
         win.style.display = (win.style.display === 'flex') ? 'none' : 'flex';
     }
 
-    // Zainicjowany czat w języku kambodżańskim (Khmer)
     function startChat() {
         const chatBox = document.getElementById('chat-content');
         const names = ["Sok_KH", "Bora_99", "VIP_King", "Rithy_Pro", "Chanthy_G", "Player1x"];
         const texts = [
             "ទើបតែឈ្នះ x1.40 ក្នុង Aviator!",
             "Mines AI អស្ចារ្យណាស់ ខ្ញុំបើកបានពេជ្រ 7!",
-            "តើវាដំណើរការសម្រាប់អ្នកទេ? ដកប្រាក់ 200,000 KHR ក្នុងរយៈពេល 5 នាទី!",
+            "តើវាដំណើរការសម្រាប់អ្នកទេ? ដកប្រាក់ $50 ក្នុងរយៈពេល 5 នាទី!",
             "បាទ វាលឿនណាស់ ហ្គេមនេះគឺល្អបំផុតថ្ងៃនេះ។",
             "អរគុណសម្រាប់ការព្យាករណ៍ PROTOS AI គឺជាអនាគត!",
-            "ចំណេញ 150,000 KHR ទៀតហើយ ខ្ញុំស្រលាញ់ប្រព័ន្ធនេះណាស់។",
+            "ចំណេញ $35 ទៀតហើយ ខ្ញុំស្រលាញ់ប្រព័ន្ធនេះណាស់។",
             "មានអ្នកណាឃើញ x3 ក្នុង Aviator ថ្ងៃនេះទេ?"
         ];
 
